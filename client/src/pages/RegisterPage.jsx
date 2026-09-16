@@ -30,7 +30,9 @@ export default function RegisterPage() {
       navigate('/login');
     } catch (err) {
       const message =
-        err?.response?.data?.message || 'Something went wrong. Please try again.';
+        err?.response?.data?.errors?.[0]?.message ||
+        err?.response?.data?.message ||
+        'Something went wrong. Please try again.';
       toast.error(message);
     }
   };
