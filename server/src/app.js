@@ -4,13 +4,14 @@ import cookieParser from 'cookie-parser';
 import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import { zodErrorHandler } from './middlewares/zodErrorHandler.js';
+import config from './config/config.js';
 
 const app = express();
 
 const allowedOrigins = [
   'http://localhost:5173',
   'http://127.0.0.1:5173',
-  process.env.FRONTEND_URL,
+  config.FRONTEND_URL,
 ].filter(Boolean);
 
 app.use(
